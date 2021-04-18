@@ -64,7 +64,7 @@ app.post("/add_user",function(req,res){
 ```javascript 
 // this will math any DELETE request that will hit /remove_user
 app.delete("/remove_user",function(req,res){
-    res.send("POST request");
+    res.send("delete request");
 }) 
 ```
 ```javascript
@@ -173,7 +173,7 @@ app.get('/user/:id', function (req, res) {
 ## using req.ip()  
 
 ```javascript
-// this will send to the user data as json format
+// this will print ip or the host
 app.get('/', function (req, res) {
   console.log(req.ip) // 127.0.0.1
 }); 
@@ -200,16 +200,7 @@ app.get('/', function (req, res) {
 
 ```
 
-## using res.status()  
-
-```javascript
-// return status code to the client
-app.get('/', function (req, res) {
-  res.status(403).end()
-  // res.status(400).send('Bad Request')
-}); 
-
-```
+ 
 ## setting cookies and clear cookies
 ```javascript 
 // response with USER cookies
