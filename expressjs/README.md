@@ -140,7 +140,7 @@ app.get('/', function (req, res) {
 ## using res.redirect()  
 
 ```javascript
-// this will set the location to /user in the response header
+// this will redirect the user to /login
 app.get('/', function (req, res) {
   res.redirect("/login")
 }); 
