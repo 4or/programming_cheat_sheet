@@ -193,7 +193,19 @@ var slic2 []int = age[:4]
 fmt.Println(slic2) // [23, 18, 78, 56]
 
 ```
+# Interfaces
 
+```go
+// interface declaration
+type geometry interface {
+    area() float64
+}
+
+// instead, types implicitly satisfy an interface if they implement all required methods
+func measure(g geometry) {
+    fmt.Println(g)
+}
+```
 
 ---
 
