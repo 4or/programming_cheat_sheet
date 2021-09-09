@@ -16,6 +16,11 @@
 
 # let's start learning
 
+```
+Golang Info
+
+when you name your functions start with uppercase letter it can be imported from out side your package 'file' and when using first letter as lowercase then it will work as privet function and can't be imported from out side your package
+```
 # Data Types  <br> 
  ```go
   
@@ -23,6 +28,8 @@
    var v bool = true
    var s string = "sky"
    var f float32  = 1.1
+   // for date type read structs below
+   var BirthDate time.Time // watch this you need to import time package first 
 
  ```
 
@@ -113,18 +120,34 @@ arith := a / z
 arith := a - z
 ```
 
-# If / Else
+# If / Else If / Else
 ```go
 
 
    a := 7
 
-   if a > 5 {
+   if a < 5 {
        fmt.Println("a is greater than")
-   } else {
+   } else if a > 5 {
        fmt.Println("a is less than")
+   } else {
+       fmt.Println("none of them!")
    }
 
+```
+# Switch 
+```go 
+Cats := "cats"
+switch Cats {
+  case "dogs":
+      fmt.Println("it's dogs")
+  case "snake":
+      fmt.Println("it's Snake")
+  case "cats":
+      fmt.Println("yup it's cat")
+  default:
+     fmt.Println("None")
+}
 ```
 
 # Loop
@@ -153,7 +176,7 @@ fmt.Println(len(x)) // length 3
 
 var x = [3]int{3, 45, 15}
 fmt.Println(x) // [3, 45, 15]
-fmt.Println(len(x)) // length 3
+fmt.Println(len(x)) // length 3 
 ```
 
 # Struct 
@@ -161,12 +184,16 @@ fmt.Println(len(x)) // length 3
 
 package main
 
-import "fmt"
+import (
+       "fmt"
+       "time"
+       )
 
 // struct
 type User struct {
    name string
    age int
+   dateBirth time.Time // when using date type import the time package
 }
 func main() {
    var user User
@@ -179,10 +206,80 @@ func main() {
 }
 
 
+// ====================== watch blow
+
+func (m *User) PrintName() string {
+  return m.name
+}
+func (m *User) PrintAge() int {
+  return m.age
+}
+
+func main() {
+  var user User
+    
+   user.name = "Elon Musk"
+   user.age = 50
+   fmt.Println( "user.name = ", user.PrintName())
+   fmt.Println( "user.age  = ", user.PrintAge())
+}
+
+// ======================= magic right
+/*
+what happen here is we point the function so it will have the power to reach into the User struct and have access to,
+
+by that the two functions has been part of the struct so when you look to the user variable you have access to that function and you can call it like the above
+
+this just for printing name and age but this way is much more power think inside the function you can do anything,
+
+- calculation
+- business logic
+- ......
+*/
+```
+
+
+# Pointers
+```go 
+/*
+ pointer is a way to point to a space in memory and have the ability to change 
+ the value in it!
+ program life cycle it can change and it must change for some use cases
+*/
+package main
+
+import "fmt"
+
+func main() {
+
+  var username string
+  username = "Elon"
+   
+  fmt.Println("The name of the space person is ", username)
+  //           with & we point to the location in memory 
+  changeUsername(&username)
+  
+  fmt.Println("And for the new space person is ",username)
+}
+
+func changeUsername(userN *string) {
+  fmt.Println("memory location of variable userN  is ",userN)
+ newUser := "John"
+ *userN = newUser
+}
+
+/*   OUTPUT
+The name of the space person is  Elon
+
+memory location of variable userN  is  0xc0000821e0 // this hexadecimal will change every time you run the program
+
+And for the new space person is  Jhon
+*/
 ```
 
 # Slices
 ```go 
+// ================== 1
 
 age = [5]int{23, 18, 78, 56, 81}
 
@@ -192,8 +289,38 @@ fmt.Println(slic1) // [18, 78, 56]
 var slic2 []int = age[:4] 
 fmt.Println(slic2) // [23, 18, 78, 56]
 
+// ================== 2
+
+var Num = []int
+
+    Num = append(Num,3)
+    Num = append(Num,1)
+    Num = append(Num,4)
+    Num = append(Num,2)
+
+    fmt.Println(Num) // output = [3 1 4 2]
+    sort.Ints(Num) // this will sort the Num
+    fmt.Println(Num) // output = [1 2 3 4]
+// you need to import sort 
 ```
 
+# Maps
+```go
+
+
+x := make(map[int]int)
+
+x[0] = 99   
+x[1] = 17  
+x[2] = 65 
+// output = map[0:99 1:17 2:65]
+
+
+/*
+To access Maps you need to know your key because map is not sorted 
+*/
+
+```
 
 ---
 
