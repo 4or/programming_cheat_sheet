@@ -303,23 +303,18 @@ var Num = []int
     fmt.Println(Num) // output = [1 2 3 4]
 // you need to import sort 
 ```
+# Interfaces
 
-# Maps
 ```go
+// interface declaration
+type geometry interface {
+    area() float64
+}
 
-
-x := make(map[int]int)
-
-x[0] = 99   
-x[1] = 17  
-x[2] = 65 
-// output = map[0:99 1:17 2:65]
-
-
-/*
-To access Maps you need to know your key because map is not sorted 
-*/
-
+// instead, types implicitly satisfy an interface if they implement all required methods
+func measure(g geometry) {
+    fmt.Println(g)
+}
 ```
 
 ---
