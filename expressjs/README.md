@@ -9,7 +9,7 @@
 
 `thanks for everyone around the world for sharing information and help other to learn and be part of this awesome family` 
 
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) Follow Me ](https://www.linkedin.com/in/ahmed-bejaoui-75b57318a?trk=people-guest_people_search-card)
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) Follow Me ](https://tn.linkedin.com/in/ahmedbejaoui)
   
 
 
